@@ -80,6 +80,11 @@ function realizarSorteio() {
   document.getElementById('segundoLugar').textContent = `${participantes[segundoLugarIndex].nome} - Número ${participantes[segundoLugarIndex].numero} - R$ 100`;
   document.getElementById('terceiroLugar').textContent = `${participantes[terceiroLugarIndex].nome} - Número ${participantes[terceiroLugarIndex].numero} - R$ 50`;
 
+  // Exibe o nome do ganhador
+  let vencedorElement = document.createElement('span');
+  vencedorElement.textContent = `O ganhador é: ${participantes[primeiroLugarIndex].nome}`;
+  document.getElementById('ganhador').appendChild(vencedorElement);
+
   salvarDados();
 }
 
@@ -88,19 +93,6 @@ function salvarDados() {
   localStorage.setItem('numerosEscolhidos', JSON.stringify(numerosEscolhidos));
 }
 
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('rifa.db');
+atualizarListaParticipantes();
 
-// Função para inserir um participante no banco de dados
-function inserirParticipante(nome, numero, valor) {
-    db.run('INSERT INTO Participantes (Nome, Numero, Valor) VALUES (?, ?, ?)', [nome, numero, valor], function(err) {
-        if (err) {
-            console.error(err.message);
-        } else {
-            console.log('Participante inserido com sucesso. ID:', this.lastID);
-        }
-    });
-}
-
-// Exemplo de uso da função inserirParticipante
-inserirParticipante('Alice', 25, 50);
+atualizarListaParticipantes()
