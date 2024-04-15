@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rifa Ayla</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Rifa Ayla</h1>
+  <p>Escolha um número entre 1 e 200 e insira seu nome:</p>
+  <input type="text" id="nomeParticipante" placeholder="Seu nome">
+  <input type="number" id="numeroEscolhido" min="1" max="200">
+  <button onclick="comprarNumero()">Comprar Número</button>
+  <h2>Participantes</h2>
+  <ul id="participantes"></ul>
+  <h2>Sorteio</h2>
+  <button onclick="realizarSorteio()">Realizar Sorteio</button>
+  <h3>1º lugar: <span id="primeiroLugar"></span></h3>
+  <h3>2º lugar: <span id="segundoLugar"></span></h3>
+  <h3>3º lugar: <span id="terceiroLugar"></span></h3>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
